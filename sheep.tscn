@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=3 uid="uid://b75bjx1okvx1e"]
+
+[ext_resource type="Script" path="res://sheep.gd" id="1_a6lvr"]
+[ext_resource type="Texture2D" uid="uid://by23jpxhhnw32" path="res://white_sheep.png" id="2_2fhsv"]
+[ext_resource type="Texture2D" uid="uid://bafyljsipow1q" path="res://organge_sheep.png" id="3_ql288"]
+[ext_resource type="Texture2D" uid="uid://cdhfxbndwi7a0" path="res://pink_sheep.png" id="4_mr3nn"]
+[ext_resource type="Texture2D" uid="uid://cqf2ogwq3rpe1" path="res://purple_sheep.png" id="5_p7xkd"]
+[ext_resource type="Texture2D" uid="uid://dsucl1qyii6ha" path="res://red_sheep.png" id="6_6t444"]
+[ext_resource type="Texture2D" uid="uid://i2hmx717qqyk" path="res://yellow_sheep.png" id="7_b61f2"]
+[ext_resource type="Texture2D" uid="uid://21na72pobhy" path="res://green_sheep.png" id="8_4bs5x"]
+[ext_resource type="Texture2D" uid="uid://bk8nqxwjisdyq" path="res://blue_sheep.png" id="9_n38lb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sp6es"]
+radius = 21.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mbt6b"]
+radius = 25.0
+
+[node name="sheep" type="CharacterBody2D" groups=["sheep"]]
+script = ExtResource("1_a6lvr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sp6es")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["sheep"]]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_mbt6b")
+metadata/_edit_lock_ = true
+
+[node name="WhiteSheep" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("2_2fhsv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.28
+one_shot = true
+
+[node name="OrgangeSheep" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("3_ql288")
+
+[node name="PinkSheep" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("4_mr3nn")
+
+[node name="PurpleSheep" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("5_p7xkd")
+
+[node name="RedSheep" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("6_6t444")
+
+[node name="YellowSheep" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("7_b61f2")
+
+[node name="GreenSheep" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("8_4bs5x")
+
+[node name="BlueSheep" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("9_n38lb")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
